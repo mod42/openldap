@@ -1,0 +1,44 @@
+## DEFINE DIT ROOT/BASE/SUFFIX ####
+## uses RFC 2377 format
+
+## dcObject is an AUXILIARY objectclass and MUST
+## have a STRUCTURAL objectclass (organization in this case)
+
+dn: dc=apim,dc=eu
+dc: apim
+o: Layers Box LDAP Server
+description: Root entry for the Layers Box
+objectClass: top
+objectclass: dcObject
+objectclass: organization
+
+## FIRST Level hierarchy - People
+
+dn: ou=People,dc=apim,dc=eu
+ou: People
+description: All people in Layers Box
+objectClass: top
+objectClass: organizationalUnit
+
+## FIRST Level hierarchy - Group
+
+dn: ou=Group,dc=apim,dc=eu
+ou: Group
+description: All groups in Layers Box
+objectClass: top
+objectClass: organizationalUnit
+
+## FIRST Level hierarchy - Hosts
+
+dn: ou=Hosts,dc=apim,dc=eu
+ou: Hosts
+description: All hosts in Layers Box
+objectClass: top
+objectClass: organizationalUnit
+
+## FIRST Level hierarchy - Manager
+
+dn: cn=Manager,dc=apim,dc=eu
+cn: Manager
+description: Rootdn
+objectclass: organizationalRole

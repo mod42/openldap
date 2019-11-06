@@ -1,0 +1,24 @@
+# Please note we are using Docker Compose version 3
+version: '2'
+services:
+  openldap-app:
+    hostname: localhost
+    domainname: localhost
+    container_name: openldap-app
+    image: learninglayers/openldap:0.0.9
+    ports:
+      - 389:389
+      - 636:636
+    environment:
+       - LDAP_ROOT_PASSWORD=pass
+       - LDAP_ADMINS=
+       - LDAP_ROOT_USER=cn=LayersManager,dc=apim,dc=eu
+       - LDAP_ROOT_DN=dc=apim,dc=eu
+       - LDAP_PROXY_PASSWORD=Ix1XLCI7qFudF8j/i6lHbQ==
+    volumes:
+      - ./ldap/backup:/data/backup
+      - ./ldap/data:/var/lib/openldap
+      - ./ldap/config:/usr/local/etc/openldap
+      - ./ldap/certs:/assets/slapd/certs
+    restart: always
+    
